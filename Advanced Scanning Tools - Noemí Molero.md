@@ -43,7 +43,7 @@ In this activity, we will explore **Zenmap**, the graphical interface version of
 
 In the **Target** field, enter scanme.nmap.org.
 
-![](img/Aspose.Words.b224f960-001f-4d70-9df3-c64351c7482c.001.png)
+![](img/AST/Aspose.Words.b224f960-001f-4d70-9df3-c64351c7482c.001.png)
 
 In the Profile dropdown, select the scan type you want (e.g., Intense Scan).
 
@@ -56,17 +56,17 @@ Start the scan and analyze the information displayed in different tabs:
 - **Host Details:** Provides detailed information about the selected host, such as the operating system, open ports, and running services.
 - **Scans:** Lists all performed scans for easy tracking.
 
-![](img/Aspose.Words.b224f960-001f-4d70-9df3-c64351c7482c.002.png)
+![](img/AST/Aspose.Words.b224f960-001f-4d70-9df3-c64351c7482c.002.png)
 
 
 
 
 
-![](img/Aspose.Words.b224f960-001f-4d70-9df3-c64351c7482c.003.png)
+![](img/AST/Aspose.Words.b224f960-001f-4d70-9df3-c64351c7482c.003.png)
 
-![](img/Aspose.Words.b224f960-001f-4d70-9df3-c64351c7482c.004.png)
+![](img/AST/Aspose.Words.b224f960-001f-4d70-9df3-c64351c7482c.004.png)
 
-![](img/Aspose.Words.b224f960-001f-4d70-9df3-c64351c7482c.005.png)
+![](img/AST/Aspose.Words.b224f960-001f-4d70-9df3-c64351c7482c.005.png)
 
 
 
@@ -81,23 +81,23 @@ Start the scan and analyze the information displayed in different tabs:
 
 Configure the **Windows Server** machine to listen for web requests on port 80.
 
-![](img/Aspose.Words.b224f960-001f-4d70-9df3-c64351c7482c.006.png)
+![](img/AST/Aspose.Words.b224f960-001f-4d70-9df3-c64351c7482c.006.png)
 
 Enter the **IP address** of the Windows Server in Zenmap's **Target** field.
 
-![](img/Aspose.Words.b224f960-001f-4d70-9df3-c64351c7482c.007.png)
+![](img/AST/Aspose.Words.b224f960-001f-4d70-9df3-c64351c7482c.007.png)
 
-![](img/Aspose.Words.b224f960-001f-4d70-9df3-c64351c7482c.008.png)
+![](img/AST/Aspose.Words.b224f960-001f-4d70-9df3-c64351c7482c.008.png)
 
 
 
 **Ports/Hosts Tab:** Displays a list of open ports on the server, including port 80 as open (highlighted as the first entry)
 
-![](img/Aspose.Words.b224f960-001f-4d70-9df3-c64351c7482c.009.png)
+![](img/AST/Aspose.Words.b224f960-001f-4d70-9df3-c64351c7482c.009.png)
 
 **Topology Tab:** Shows a graphical representation of the network and connections between hosts, similar to the previous task.
 
-![](img/Aspose.Words.b224f960-001f-4d70-9df3-c64351c7482c.010.png)
+![](img/AST/Aspose.Words.b224f960-001f-4d70-9df3-c64351c7482c.010.png)
 
 **Host Details Tab:** Provides detailed information about the selected host, including:
 
@@ -105,11 +105,11 @@ Enter the **IP address** of the Windows Server in Zenmap's **Target** field.
 - Filtered and scanned ports
 - Operating system name
 
-![](img/Aspose.Words.b224f960-001f-4d70-9df3-c64351c7482c.011.png)
+![](img/AST/Aspose.Words.b224f960-001f-4d70-9df3-c64351c7482c.011.png)
 
 **Scans Tab:** Lists all performed scans, highlighting the IP address of the scanned Windows Server.
 
-![](img/Aspose.Words.b224f960-001f-4d70-9df3-c64351c7482c.012.png)
+![](img/AST/Aspose.Words.b224f960-001f-4d70-9df3-c64351c7482c.012.png)
 
 
 
@@ -127,7 +127,7 @@ Launch Nmap and run the following command using one of its vulnerability scripts
 
 ·  This scan will identify potential vulnerabilities in the target system.
 
-![](img/Aspose.Words.b224f960-001f-4d70-9df3-c64351c7482c.013.png)
+![](img/AST/Aspose.Words.b224f960-001f-4d70-9df3-c64351c7482c.013.png)
 
 After running the scan, you might see results like the detection of vulnerabilities in the **OpenSSH 6.6.1p1** version. 
 
@@ -135,7 +135,7 @@ After running the scan, you might see results like the detection of vulnerabilit
 
 Start the **Metasploitable 2** machine and identify its IP address
 
-![](img/Aspose.Words.b224f960-001f-4d70-9df3-c64351c7482c.014.png)
+![](img/AST/Aspose.Words.b224f960-001f-4d70-9df3-c64351c7482c.014.png)
 
 
 
@@ -149,7 +149,7 @@ Run the **Nmap** vulnerability scan against the IP of your Metasploitable 2 mach
 
 The scan should display information about open ports and known vulnerabilities present on the Metasploitable 2 machine.
 
-![](img/Aspose.Words.b224f960-001f-4d70-9df3-c64351c7482c.015.png)
+![](img/AST/Aspose.Words.b224f960-001f-4d70-9df3-c64351c7482c.015.png)
 
 ·  Example output might show a variety of vulnerabilities, including open ports such as **21 (FTP)** and **22 (SSH)**.
 
@@ -196,7 +196,7 @@ To simulate an **SSH brute-force attack** on a Linux machine (Ubuntu Server or U
 
 ·  **<target\_ip>**: Replace this with the IP address of your target machine.
 
-![](img/Aspose.Words.b224f960-001f-4d70-9df3-c64351c7482c.016.png)
+![](img/AST/Aspose.Words.b224f960-001f-4d70-9df3-c64351c7482c.016.png)
 
 **Results**:
 
