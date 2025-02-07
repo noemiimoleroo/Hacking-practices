@@ -296,7 +296,7 @@ And we got the flag
 
 
 
-<a name="_toc189652368"></a>**Conclusion**
+## <a name="_toc189652368"></a>**Conclusion**
 
 In this section, we've explored the core concepts of Multi-Factor Authentication (MFA) and Two-Factor Authentication (2FA), providing a clear understanding of how these security measures enhance protection against unauthorized access.
 
