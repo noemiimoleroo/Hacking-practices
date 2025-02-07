@@ -32,7 +32,7 @@ NOEMÍ MOLERO
 #
 [**Hammer**	1](#_toc189738737)
 
-`    `[**Introduction**:	1](#_toc189738738)
+[**Introduction**:	1](#_toc189738738)
 
 [First Step: **Scanning**	3](#_toc189738739)
 
@@ -52,21 +52,15 @@ No clues to solve the challenges.
 
 IP: 10.10.14.123
 
-![Interfaz de usuario gráfica, Texto, Aplicación, Chat o mensaje de texto
-
-Descripción generada automáticamente](Aspose.Words.093e789e-92f8-4fa5-8385-57b8d7a960b7.002.png)
+![](Aspose.Words.093e789e-92f8-4fa5-8385-57b8d7a960b7.002.png)
 ## <a name="_toc189738739"></a>**First Step: Scanning**
 We see **two open ports - 22 and 1337**
 
-![Texto
-
-Descripción generada automáticamente](img/THM-hammer/Aspose.Words.093e789e-92f8-4fa5-8385-57b8d7a960b7.003.png)
+![](img/THM-hammer/Aspose.Words.093e789e-92f8-4fa5-8385-57b8d7a960b7.003.png)
 
 We will try what we see on port 1337, If we try a typic login like admin admin, we go to the cookie section we can see a PHPSESSID value =gs2plroeet1vdm5vkpvdnm3674
 
-![Interfaz de usuario gráfica, Aplicación
-
-Descripción generada automáticamente](img/THM-hammer/Aspose.Words.093e789e-92f8-4fa5-8385-57b8d7a960b7.004.png)
+![](img/THM-hammer/Aspose.Words.093e789e-92f8-4fa5-8385-57b8d7a960b7.004.png)
 ## <a name="_toc189738740"></a>**Second Step: Fuffing**
 Let’s try the forget my password.
 
@@ -78,21 +72,15 @@ We can inspect the HTML of the login page to find something, and we got it, a co
 
 **We found 4 directories.**
 
-![Texto
-
-Descripción generada automáticamente](img/THM-hammer/Aspose.Words.093e789e-92f8-4fa5-8385-57b8d7a960b7.006.png)
+![](img/THM-hammer/Aspose.Words.093e789e-92f8-4fa5-8385-57b8d7a960b7.006.png)
 
 Let’s see the logs file, **we found an e-mail address.**
 
-![Pantalla de computadora
-
-Descripción generada automáticamente con confianza media](Aspose.Words.093e789e-92f8-4fa5-8385-57b8d7a960b7.007.png)
+![](Aspose.Words.093e789e-92f8-4fa5-8385-57b8d7a960b7.007.png)
 ## <a name="_toc189738741"></a>**Third Step: Bypassing 2FA**
 We can go back to the reset passwd page and introduce our found email address; we can see that we must enter an OTP.
 
-![Interfaz de usuario gráfica, Aplicación, Sitio web
-
-Descripción generada automáticamente](Aspose.Words.093e789e-92f8-4fa5-8385-57b8d7a960b7.008.png)
+![](Aspose.Words.093e789e-92f8-4fa5-8385-57b8d7a960b7.008.png)
 
 We can create a dictionary with numbers from 0000 to 9999
 
@@ -114,21 +102,15 @@ Let’s prepare our payload first:
 - **-fr "Invalid":** Filters out responses that contain the string "Invalid". This helps in identifying successful or interesting responses that differ from the common invalid ones.
 - **-s:** Runs ffuf in silent mode, which reduces the amount of output to only essential information.
 
-![Texto
-
-Descripción generada automáticamente con confianza media](img/THM-hammer/Aspose.Words.093e789e-92f8-4fa5-8385-57b8d7a960b7.010.png)
+![](img/THM-hammer/Aspose.Words.093e789e-92f8-4fa5-8385-57b8d7a960b7.010.png)
 
 If we enter the 4163 code into the 2FA, we can see a Reset Passwd page
 
-![Interfaz de usuario gráfica, Aplicación
-
-Descripción generada automáticamente](img/THM-hammer/Aspose.Words.093e789e-92f8-4fa5-8385-57b8d7a960b7.011.png)
+![](img/THM-hammer/Aspose.Words.093e789e-92f8-4fa5-8385-57b8d7a960b7.011.png)
 
 After we changed the passwd to 1234, it redirects us to the login page, so we will try to enter with the email we found and the new passwd 1234, **we’re in, and we have the first flag**:
 
-![Una captura de pantalla de un celular con texto e imagen
-
-Descripción generada automáticamente con confianza media](img/THM-hammer/Aspose.Words.093e789e-92f8-4fa5-8385-57b8d7a960b7.012.png)
+![](img/THM-hammer/Aspose.Words.093e789e-92f8-4fa5-8385-57b8d7a960b7.012.png)
 
 To get the second flag, we should find the content of the file **/home/ubuntu/flag.txt**
 
@@ -136,9 +118,7 @@ Let’s start by entering commands on the search bar of the user.
 
 We find a 188ade1.key 
 
-![Interfaz de usuario gráfica, Texto
-
-Descripción generada automáticamente](Aspose.Words.093e789e-92f8-4fa5-8385-57b8d7a960b7.013.png)
+![](img/THM-hammer/Aspose.Words.093e789e-92f8-4fa5-8385-57b8d7a960b7.013.png)
 
 ![](img/THM-hammer/Aspose.Words.093e789e-92f8-4fa5-8385-57b8d7a960b7.014.png)
 
@@ -150,15 +130,11 @@ We can also see a jwtToken, something I had never heard of, on line 68 (more on
 
 So, from looking at this, we can see this is likely related to how the server decided if we can execute a command or not. If we can mess with this, perhaps we can execute commands (like cat etc/shadow) and get something useful?
 
-![Texto
-
-Descripción generada automáticamente](img/THM-hammer/Aspose.Words.093e789e-92f8-4fa5-8385-57b8d7a960b7.015.png)
+![](img/THM-hammer/Aspose.Words.093e789e-92f8-4fa5-8385-57b8d7a960b7.015.png)
 
 We can try to decode the jwtToken
 
-![Texto
-
-Descripción generada automáticamente](img/THM-hammer/Aspose.Words.093e789e-92f8-4fa5-8385-57b8d7a960b7.016.png)
+![](img/THM-hammer/Aspose.Words.093e789e-92f8-4fa5-8385-57b8d7a960b7.016.png)
 
 We can see some interesting items in the payload, the role and user\_id, which we might be able to manipulate to allow for greater access as this token is used with the authorization header in Fig 13.
 
@@ -168,34 +144,24 @@ Steps:
 
 56058354efb3daa97ebab00fabd7a7d7
 
-![Interfaz de usuario gráfica, Texto, Aplicación
-
-Descripción generada automáticamente](img/THM-hammer/Aspose.Words.093e789e-92f8-4fa5-8385-57b8d7a960b7.017.png)
+![](img/THM-hammer/Aspose.Words.093e789e-92f8-4fa5-8385-57b8d7a960b7.017.png)
 
 We modify it and copy to the clipboard.
 
-![Interfaz de usuario gráfica, Texto, Aplicación
-
-Descripción generada automáticamente](img/THM-hammer/Aspose.Words.093e789e-92f8-4fa5-8385-57b8d7a960b7.018.png)
+![](img/THM-hammer/Aspose.Words.093e789e-92f8-4fa5-8385-57b8d7a960b7.018.png)
 
 Then we open burpsuite and modify the request with the new jwtToken and we will get the flag in the response!
 
-![Texto
+![](img/THM-hammer/Aspose.Words.093e789e-92f8-4fa5-8385-57b8d7a960b7.019.png)
 
-Descripción generada automáticamente](img/THM-hammer/Aspose.Words.093e789e-92f8-4fa5-8385-57b8d7a960b7.019.png)
-
-We get the flag
-
-![](img/THM-hammer/Aspose.Words.093e789e-92f8-4fa5-8385-57b8d7a960b7.020.png)
+We get the flag on the response
 
 Done it!
 
-![Interfaz de usuario gráfica, Aplicación
-
-Descripción generada automáticamente](img/THM-hammer/Aspose.Words.093e789e-92f8-4fa5-8385-57b8d7a960b7.021.png)
+![](img/THM-hammer/Aspose.Words.093e789e-92f8-4fa5-8385-57b8d7a960b7.021.png)
 
 ## <a name="_toc189738742"></a>**Conclusion**
 We successfully gained access to the dashboard by brute-forcing the 2FA code and resetting the password. With creative analysis of the source code, we discovered a JWT-based authorization mechanism that allowed us to escalate privileges by forging a valid token signed with the correct key. This enabled us to execute arbitrary commands and retrieve the final flag. Through a combination of enumeration, brute forcing, and token manipulation, we demonstrated effective techniques for solving complex web-based security challenges.
 
-2
+
 
