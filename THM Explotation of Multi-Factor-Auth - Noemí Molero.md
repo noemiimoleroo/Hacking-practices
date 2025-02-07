@@ -68,7 +68,7 @@ Sudo nano /etc/hosts
 
 ![Interfaz de usuario gráfica, Texto, Aplicación
 
-Descripción generada automáticamente](Aspose.Words.585a0df3-49a0-4687-b142-e2a834135ea8.002.png)
+Descripción generada automáticamente]![](img/THM-mof/Aspose.Words.585a0df3-49a0-4687-b142-e2a834135ea8.002.png)
 
 **Practical OTP Leakage**
 
@@ -84,13 +84,13 @@ Some reasons:
 
 ![Interfaz de usuario gráfica, Aplicación
 
-Descripción generada automáticamente](Aspose.Words.585a0df3-49a0-4687-b142-e2a834135ea8.003.png)
+Descripción generada automáticamente]![](img/THM-mof/Aspose.Words.585a0df3-49a0-4687-b142-e2a834135ea8.003.png)
 
 Log in 
 
 ![Tabla
 
-Descripción generada automáticamente](Aspose.Words.585a0df3-49a0-4687-b142-e2a834135ea8.004.png)
+Descripción generada automáticamente]![](img/THM-mof/Aspose.Words.585a0df3-49a0-4687-b142-e2a834135ea8.004.png)
 
 We open the developer tools – network before logging in, and we can see a xhr request sent to the endpoint /token 
 
@@ -113,23 +113,23 @@ We are in
 ## <a name="_toc189652366"></a>**Exploitation – Insecure Coding**
 ![Captura de pantalla de un celular
 
-Descripción generada automáticamente](img/THM-mof/Aspose.Words.585a0df3-49a0-4687-b142-e2a834135ea8.010.png)
+Descripción generada automáticamente]![](img/THM-mof/Aspose.Words.585a0df3-49a0-4687-b142-e2a834135ea8.010.png)
 
 ![Captura de pantalla de un celular
 
-Descripción generada automáticamente](img/THM-mof/Aspose.Words.585a0df3-49a0-4687-b142-e2a834135ea8.011.png)
+Descripción generada automáticamente]![](img/THM-mof/Aspose.Words.585a0df3-49a0-4687-b142-e2a834135ea8.011.png)
 
 We need to authenticate the OTP to access to the dashboard, but me can try to manipulate the URL
 
 ![Interfaz de usuario gráfica, Texto, Aplicación
 
-Descripción generada automáticamente](img/THM-mof/Aspose.Words.585a0df3-49a0-4687-b142-e2a834135ea8.012.png)
+Descripción generada automáticamente]![](img/THM-mof/Aspose.Words.585a0df3-49a0-4687-b142-e2a834135ea8.012.png)
 ## <a name="_toc189652367"></a>**Exploitation – Beating The Auto-Logout Feature**
 When the user fails the 2FA it logs out automatically, and the apps generates a 4-digit pin code, usually, in the range of 0000 to 9999. Whitch is difficult to discover, but we can try to change it to a lower value. 
 
 ![Texto
 
-Descripción generada automáticamente](img/THM-mof/Aspose.Words.585a0df3-49a0-4687-b142-e2a834135ea8.013.png)
+Descripción generada automáticamente]![](img/THM-mof/Aspose.Words.585a0df3-49a0-4687-b142-e2a834135ea8.013.png)
 
 We can create a script named as exploit.py and run it:
 
@@ -299,7 +299,7 @@ try\_until\_success()
 
 ![Texto
 
-Descripción generada automáticamente](Aspose.Words.585a0df3-49a0-4687-b142-e2a834135ea8.014.png)
+Descripción generada automáticamente]![](img/THM-mof/Aspose.Words.585a0df3-49a0-4687-b142-e2a834135ea8.014.png)
 
 ![](img/THM-mof/Aspose.Words.585a0df3-49a0-4687-b142-e2a834135ea8.015.png)
 
@@ -307,17 +307,17 @@ We now go to the browser and open cookies storage and change the value from PHPS
 
 ![Captura de pantalla de un celular
 
-Descripción generada automáticamente](Aspose.Words.585a0df3-49a0-4687-b142-e2a834135ea8.016.png)
+Descripción generada automáticamente]![](img/THM-mof/Aspose.Words.585a0df3-49a0-4687-b142-e2a834135ea8.016.png)
 
 ![Interfaz de usuario gráfica, Aplicación
 
-Descripción generada automáticamente](Aspose.Words.585a0df3-49a0-4687-b142-e2a834135ea8.017.png)
+Descripción generada automáticamente]![](img/THM-mof/Aspose.Words.585a0df3-49a0-4687-b142-e2a834135ea8.017.png)
 
 And we got the flag
 
 ![Interfaz de usuario gráfica, Texto
 
-Descripción generada automáticamente](Aspose.Words.585a0df3-49a0-4687-b142-e2a834135ea8.018.png)
+Descripción generada automáticamente]![](img/THM-mof/Aspose.Words.585a0df3-49a0-4687-b142-e2a834135ea8.018.png)
 
 
 
