@@ -31,7 +31,7 @@ NOEMÍ MOLERO
 #
 [**Exploiting Multi-Factor Authentication**	1](#_toc189652363)
 
-`     `[**Introduction**:	1](#_toc189652364)
+[**Introduction**:	1](#_toc189652364)
 
 [**Common vulnerabilities in MFA**	3](#_toc189652365)
 
@@ -58,7 +58,7 @@ NOEMÍ MOLERO
 
   The bad configuration can lead to brute-force attacks, like the option of trying unlimited guesses without any restriction
 
-  - ` `Evilingx
+  - Evilingx
 
 
 
@@ -115,6 +115,8 @@ When the user fails the 2FA it logs out automatically, and the apps generates a 
 ![](img/THM-mof/Aspose.Words.585a0df3-49a0-4687-b142-e2a834135ea8.013.png)
 
 We can create a script named as exploit.py and run it:
+
+```` py
 
 import requests
 
@@ -277,6 +279,7 @@ def try\_until\_success():
 \# Start the attack to try until success
 
 try\_until\_success()
+````
 
 
 
