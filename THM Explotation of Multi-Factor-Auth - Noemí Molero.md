@@ -84,13 +84,13 @@ Some reasons:
 
 ![Interfaz de usuario gráfica, Aplicación
 
-Descripción generada automáticamente](Aspose.Words.585a0df3-49a0-4687-b142-e2a834135ea8.003.png)
+Descripción generada automáticamente](img/THM-mof/Aspose.Words.585a0df3-49a0-4687-b142-e2a834135ea8.003.png)
 
 Log in 
 
 ![Tabla
 
-Descripción generada automáticamente](Aspose.Words.585a0df3-49a0-4687-b142-e2a834135ea8.004.png)
+Descripción generada automáticamente](img/THM-mof/Aspose.Words.585a0df3-49a0-4687-b142-e2a834135ea8.004.png)
 
 We open the developer tools – network before logging in, and we can see a xhr request sent to the endpoint /token 
 
